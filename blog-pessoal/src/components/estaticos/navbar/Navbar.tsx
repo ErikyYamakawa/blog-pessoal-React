@@ -32,7 +32,7 @@ function Navbar() {
                             </Typography>
                         </Box>
                         <Link to="/login" className="text-decorator-none">
-                            <Box mx={1} className="cursor">
+                            <Box mx={1} className="cursor ">
                                 <Typography variant="h6" color="inherit">
                                     LogOut
                                 </Typography>

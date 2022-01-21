@@ -5,6 +5,7 @@ import Home from "./paginas/home/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Login from "./paginas/login/Login";
+import CadastroUsuario from "./paginas/cadastroUsuario/CadastroUsuario";
 
 
 function App() {
@@ -26,6 +27,11 @@ function App() {
           <Route path="/home">
             <Home />
           </Route>
+
+          <Route path="/cadastrousuario">
+            <CadastroUsuario />
+          </Route>
+
         </div>
       </Switch>
       < Footer />
