@@ -1,40 +1,40 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
-import { Grid,Box,Typography,Button,TextField} from "@material-ui/core";
-import {Link, useHistory} from "react-router-dom";
+import { Grid, Box, Typography, Button, TextField } from "@material-ui/core";
+import { Link, useHistory } from "react-router-dom";
 import User from "../../models/User";
-import{ cadastroUsuario } from "../../services/Service";
+import { cadastroUsuario } from "../../services/Service";
 import "./CadastroUsuario.css";
 
 function CadastroUsuario() {
 
     let history = useHistory();
-    const[confirmarSenha,setConfirmarSenha] = useState<String>("")
-    const[user, setUser]= useState<User>(
+    const [confirmarSenha, setConfirmarSenha] = useState<String>("")
+    const [user, setUser] = useState<User>(
         {
-            id:0,
-            nome:"",
-            usuario:"",
-            senha:""
-    })
-    const[userResult,setUserResult] = useState<User>(
-        {
-            id:0,
-            nome:"",
-            usuario:"",
+            id: 0,
+            nome: "",
+            usuario: "",
             senha: ""
-    })
+        })
+    const [userResult, setUserResult] = useState<User>(
+        {
+            id: 0,
+            nome: "",
+            usuario: "",
+            senha: ""
+        })
 
-    useEffect(() =>{
-        if(userResult.id != 0){
+    useEffect(() => {
+        if (userResult.id != 0) {
             history.push("/login")
         }
     }, [userResult])
 
-    function confirmarSenhaHandle(e:ChangeEvent<HTMLInputElement>){
+    function confirmarSenhaHandle(e: ChangeEvent<HTMLInputElement>) {
         setConfirmarSenha(e.target.value)
     }
 
-    function updatedModel(e:ChangeEvent<HTMLInputElement>){
+    function updatedModel(e: ChangeEvent<HTMLInputElement>) {
 
         setUser({
             ...user,
@@ -43,10 +43,10 @@ function CadastroUsuario() {
     }
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-        if(confirmarSenha == user.senha){
-            cadastroUsuario(`/usuarios/cadastrar`, user,setUserResult)
+        if (confirmarSenha == user.senha) {
+            cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
             alert("usuario cadastrado com sucesso")
-        }else{
+        } else {
             alert("Dados inconsistentes. Favor verificar as informações de cadastro.")
         }
     }
@@ -68,8 +68,8 @@ function CadastroUsuario() {
                                 </Button>
                             </Link>
                             <Button type="submit" variant="contained" color="primary">
-                                    Cadastrar
-                                </Button>
+                                Cadastrar
+                            </Button>
                         </Box>
                     </form>
                 </Box>
