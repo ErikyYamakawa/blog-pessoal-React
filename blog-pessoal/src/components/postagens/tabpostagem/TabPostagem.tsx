@@ -29,8 +29,7 @@ function TabPostagem() {
                 </TabPanel>
             </TabContext>
         </>
-    )
-
+    );
 }
 
 export default TabPostagem;
